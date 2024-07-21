@@ -1,2 +1,2 @@
-# compare-markdown-table-and-json-in-llm
-This project aim to compare the performance with RAG in llm.
+# Compare markdown table and other table-like data structures with pure text
+This project aim to compare the performance of table-like data structure with RAG in llm.
