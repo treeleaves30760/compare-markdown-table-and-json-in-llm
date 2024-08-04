@@ -1,0 +1,6 @@
+1. Generate the table data with different amount of column and row
+2. Create different type of question like:
+	a. What is <1>'s <2> in the table?
+	b. List all <3> in the table
+	c. Please sum up <4>
+3. Use different models and prompt engineering to test the accuracy.
