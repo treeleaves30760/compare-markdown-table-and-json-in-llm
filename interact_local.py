@@ -43,7 +43,7 @@ class LLMInference:
             template = Template(template_content)
             return template.render(**kwargs)
 
-    def send_message(self, message):
+    def _send_message_to_LLM(self, message):
         """
         Send a message to the LLM and get the response.
         Args:
@@ -54,6 +54,19 @@ class LLMInference:
         outputs = self.model.generate(inputs, max_length=256)
         response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         return response
+
+    def send_message(self, rag_data, question, template_name='llama3_basic.prompt'):
+        """
+        Combine rag_data and message into template and send to the model.
+
+        Args:
+        - rag_data (str): Data for the RAG model.
+        - question (str): Question to ask the model.
+        - template_name (str): Name of the template file in the 'prompt_template' directory.
+        """
+        message = self.load_chat_template(
+            filename=template_name, rag_data=rag_data, question=question)
+        return self._send_message_to_LLM(message)
 
 
 # Example usage:
